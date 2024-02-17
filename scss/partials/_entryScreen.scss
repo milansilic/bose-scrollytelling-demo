@@ -1,0 +1,70 @@
+#entry_screen {border: px solid red;
+    width: 100%; 
+    background-color: #595959;
+    color: #fff;
+
+    a {border: px solid red;
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    
+    main {
+        height:100vh; 
+        height:100dvh;
+
+        .inside { border: px solid yellow;
+            position: relative;
+            width: 88vw;
+            height: 100%;
+            max-width: 106rem;
+            margin: 0 auto;
+
+            span.logo { 
+                display: inline-block;
+                position: fixed;
+                background-color: #242424;
+                width: 7.375rem;
+                height: 7.375rem;
+            }
+
+            section {border: px solid lime;
+                display: inline-block;
+                position: absolute;
+                top: 50%; left: 50%;
+                transform: translate(-50%, -50%);
+                h2 {
+                    font-size: 2.1875rem;
+                    font-size: clamp(3.375rem, 3.375vw, 3.375rem);
+                    margin-bottom: 2.5rem;
+                }
+                p {
+                    width: 48ch;
+                    font-size: 1rem;
+                    font-size: clamp(1rem, 1.375vw, 1.375rem);
+                    margin-bottom: 3.75rem;
+                }
+                button {
+                    border: 2px solid silver;
+                    color: #fff;
+                    font-size: 1.25rem;
+                    font-size: clamp(1rem, 1.375vw, 1.25rem);
+                    font-weight: 900;
+                    width: 16.625rem;
+                    height: 4.375rem;
+                    border-radius: 2.2rem;
+                    a {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: 2.2rem;
+                    }
+
+                }
+            
+            }
+        }
+
+        
+    }
+}

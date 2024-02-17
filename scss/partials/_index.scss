@@ -1,0 +1,244 @@
+html {
+   font-family: sans-serif;
+   scroll-snap-type: mandatory;
+   scroll-snap-points-y: repeat(100vh);
+   scroll-snap-type: y mandatory;
+}
+
+body>section.step {
+   display: none;
+   height: 100vh;
+   height: 100dvh;
+   scroll-snap-align: start;
+   scroll-snap-stop: always;
+   &:nth-of-type(4n){background-color: teal;}
+   &:nth-of-type(4n+1){background-color:burlywood}
+   &:nth-of-type(4n+2){background-color:cornflowerblue}
+   &:nth-of-type(4n+3){background-color:darksalmon}
+}
+
+// .container { border: 12px solid lime;
+//    width: 100%;
+//    min-height: 1000vh;
+// }
+
+#abs { border: px solid red;
+   display: none;
+   position: sticky;
+   top: 0;
+   height: 100vh; height: 100dvh;
+   margin-top: -100vh; margin-top: -100dvh;
+   background-color: var(--col_light);
+   // background-color: rgba($color: #fff, $alpha: 0.5);
+   pointer-events: none;
+   overflow: hidden;
+   -ms-overflow-style: none;
+   scrollbar-width: none;
+   &::-webkit-scrollbar {display: none;}
+   &>*{
+      display: none;
+      position: absolute;
+      transition: all .38s;
+   }
+
+   // SHARED STYLES
+   #circ0a, #circ0b, #circ4a, #circ4b, #circ6a, #circ6b {
+      background-color: var(--col_dark);
+      border-radius: 50%;
+   }
+
+   #circ4a, #circ4c, #circ4b, #circ6a, #circ6c, #circ6b {
+      width: 0; height: 0;
+      transition-property: width, height, left;
+      overflow: hidden;
+   }
+
+   #message4, #message6 {
+      color: var(--col_light);
+      text-align: center;
+   }
+   
+   #message3>*, #message5>*, #message7>*, #message9>* {
+      transition-property: opacity, transform;
+      transition-duration: .28s;
+   }
+   
+   #message1 p, #message2 p {
+      color: var(--col_dark);
+      text-align: center;
+      transition-property: opacity, transform;
+   }
+
+   #message1 p, #message2, #message3>*, #message5>*, #message7>*, #message9>* {
+      opacity: 0;
+   }
+   
+   // INDIVIDUAL STYLES
+   #circ0a, #circ0b {
+      width: 70vmin;
+      height: 70vmin;
+      transition-property: top, left;
+      transition-duration: var(--dur, .3s);
+   }
+
+   #message1 p {
+      font-size: 1.75rem;
+      font-size: clamp(1.75rem, 4vw, 3.375rem);
+	  line-height: 1.4;
+      transition-duration: .38s;
+      &:nth-of-type(1) {transform: translateY(2rem);}
+      &:nth-of-type(2) {transform: translateY(3rem);}
+      &:nth-of-type(3) {transform: translateY(4rem);}
+      &:nth-of-type(4) {transform: translateY(5rem);}
+   }
+
+   #message2 {
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      @media (orientation: landscape) {flex-direction: row;}
+      @media (orientation: portrait) {flex-direction: column;}
+      p {
+         position: relative;
+         font-weight: 600;
+         font-size: 3.5rem;
+         font-size: clamp(3.5rem, 9.72vw, 11.75rem);
+         transition-duration: .34s;
+         @media (orientation: landscape) {
+            transform: translateX(100%);
+            @media (min-width: 1920px) {transform: translateX( calc(960px + 50vw) );}
+            &:nth-of-type(1){width: 15ch;}
+         }
+         @media (orientation: portrait) {
+            opacity: 0;
+            transform: translateX(30vw);
+         }
+         &::after {
+            content:"";
+            display: block;
+            position: absolute;
+            top: 44%;
+            background-color: var(--col_dark);
+            width: 0;
+            height: .158em;
+            transition: width .4s;
+         }
+      }
+   }
+
+   #message3 {
+      top: 48%;
+      justify-content: center;
+      align-items: baseline;
+      width: 100%;
+      transform: translateY(-50%);
+      &>* {transform: translateY(4rem);}
+      p {font-size: 2.5rem;}
+      b, b svg {font-size: 196px;}
+      b {
+         position: relative;
+         display: block;
+         font-weight: 800;
+         margin: 0 2rem;
+         svg { 
+            position: absolute;
+            top: .35em;
+            opacity: 0;
+            transform: translateY(2rem);
+            &:nth-of-type(1) {left: -0.4em;}
+            &:nth-of-type(2) {right: -0.4em;}
+         }
+      }
+   }
+
+   #circ4a, #circ4c, #circ4b {
+      transition-duration: .6s;
+      transition-timing-function: cubic-bezier(0,0,.4,1.5);
+   }
+
+   #message4>* {width: 100vw;}
+   #message4 h4 {
+      font-size: 6rem;
+   }
+   #message4 h2 {
+      position: relative;
+      font-size: 15rem;
+      font-weight: 800;
+      line-height: 1;
+   }
+
+   #message5 {
+      top: 48%; left: 50%;
+      transform: translate(-50%, -50%);
+      color: var(--col_dark); 
+      text-align: center;
+      &>* {transform: translateY(4rem);}
+      h4 {
+         font-size: 5rem;
+         font-weight: 400;
+      }
+      h2 {
+         font-size: 14rem;
+         font-weight: 800;
+         line-height: 1;
+      }
+   }
+
+   #message6 p {
+      width: 62vmax;
+      font-size: 3.5rem;
+   }
+
+   #message7 {
+      top: 61%; left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      p {
+         font-size: 3.5rem;
+         font-weight: 600;
+         line-height: 1.2;
+         transform: translateY(4rem);
+      }
+      h2 {
+         position: relative;
+         font-size: 14rem;
+         line-height: 0.9;
+         overflow: hidden;
+         &::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 40%;
+            transform: translate(-50%, 0%);
+            background-image: linear-gradient(to right, rgba(255,0,0,0), var(--col_light) 10%);
+            width: 120%;
+            height: 100%;
+            transition: left .6s;
+         }
+      }
+   }
+
+   #message9 {
+      top: 45%; left: 50%;
+      color: var(--col_dark); 
+      transform: translate(-50%, -50%);
+      text-align: center;
+      &>* {transition-timing-function: cubic-bezier(.4,.1,.6,.9);}
+      p {
+         position: relative;
+         font-size: 1.25rem;
+         font-size: clamp(1.25rem, 2.25vw, 2.25rem);
+         transform: translateY(2.9rem);
+         margin-bottom: 2rem;
+      }
+      h4 {
+         position: absolute;
+         top: 100%; left: 50%;
+         transform: translate(-50%, 2.6rem);
+         font-size: 2rem;
+         font-size: clamp(2rem, 3.375vw, 3.375rem);
+         font-weight: 800;
+         line-height: 1.14;
+         width: 16ch;
+      }
+   }
+}

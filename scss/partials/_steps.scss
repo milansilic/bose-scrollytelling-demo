@@ -1,0 +1,344 @@
+// STEP 0 //
+#abs.step0 { #circ11a, #circ11b, #circ11c {display: block;}
+    #circ0a, #circ0b, #message1 {display: block;}    
+}
+
+// STEP 1 //
+#abs.step1 {
+    #circ0a, #circ0b, #message1 {display: block;}
+    #circ0a, #circ0b {
+        transition-duration: var(--dur, .75s);
+        transition-timing-function: cubic-bezier(.68,0,.27,.8);
+    }
+    @media (orientation: landscape) {
+        #circ0a {left: -5%;}
+        #circ0b {left: 105%;}
+    }
+    @media (orientation: portrait) {
+        #circ0a {top: 0;}
+        #circ0b {top: 100%;}
+    }
+    #message1 p {
+        opacity: 1;
+        transform: translateY(0);
+        transition-timing-function: ease-out;
+        &:nth-of-type(1) {transition-delay: .5s;}
+        &:nth-of-type(2) {transition-delay: .6s;}
+        &:nth-of-type(3) {transition-delay: .65s;}
+        &:nth-of-type(4) {transition-delay: .7s;}
+    }
+    #message2 {
+        display: flex;
+        opacity: 1;
+        transition: opacity .1s .1s;
+    }
+}
+
+// STEP 2 //
+#abs.step2 {#circ11a, #circ11b, #circ11c {display: block;}
+    #circ0a, #circ0b, #message1 {display: block;}
+
+    #circ11a, #circ11b, #circ11c {display: block;}
+    #circ11a, #circ11b {
+        width: 40vmax; height: 40vmax;
+    }
+    #circ11a {left: -12%;}
+    #circ11b {left: 112%;}
+    #circ11c {
+        transition-duration: .2s;
+        transition-delay: .35s;
+    }
+
+
+
+    #circ0a, #circ0b {transition-duration: var(--dur, .6s);}
+    @media (orientation: landscape) {
+        #circ0a {left: -25%;}
+        #circ0b {left: 125%;}
+    }
+    @media (orientation: portrait) {
+        #circ0a {top: -10%;}
+        #circ0b {top: 150%;}
+    }
+    #message1 {
+        top: 6.3%;
+        transition: all .5s;
+        @media (orientation: portrait) {opacity: 0;}
+        p {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    #message2 {
+        display: flex;
+        opacity: 1;
+        p {
+            transform: translateX(0);
+            transition-timing-function: cubic-bezier(.4,0,.6,1);
+        }
+        p::after {
+            content:"";
+            width: 100%;
+            transition-property: width;
+            transition-duration: .35s;
+            transition-timing-function: ease-out;
+        }
+    }
+    @media (orientation: landscape) {
+        #message2 p {
+            transition-duration: .65s;
+            transition-delay: .15s;
+            &::after {transition-delay: .75s;}
+        }
+    }
+    @media (orientation: portrait) {
+        #message2 p {
+            opacity: 1;
+            transform: translateX(0);
+            &:nth-of-type(1){
+                transition-delay: .1s;
+                &::after {transition-delay: .4s;}
+            }
+            &:nth-of-type(2){
+                transition-delay: .2s;
+                &::after {transition-delay: .5s;}
+            }
+            &:nth-of-type(3){
+                transition-delay: .3s;
+                &::after {transition-delay: .6s;}
+            }
+            
+        }    
+    }
+    #message3 {display: flex;}
+}
+
+// STEP 3 //
+#abs.step3 {
+    #message1, #circ4a, #circ4c, #circ4b {display: block;}
+    #message2, #message3 {display: flex;}
+    #message1, #message2 {
+        transition: all .5s;
+        transition-timing-function: cubic-bezier(.66,.01,1,1);
+    }
+    #message1 {
+        top: -15%;
+        p { 
+            opacity: 0;
+            transform: translateY(0);
+        }
+    }
+    #message2 {opacity: 1;}
+    #message2 p::after {
+        content:"";
+        width: 100%;
+    }
+    @media (orientation: landscape) {
+        #message2 p {
+            transform: translateX(-100%);
+            transition-property: transform;
+            transition-duration: .6s;
+            transition-timing-function: cubic-bezier(.4,0,.6,1);
+            @media (min-width: 1920px) {transform: translateX( calc(-990px - 51.5vw) );}
+        }
+    }
+    @media (orientation: portrait) {
+        #message2 p {
+            opacity: 0;
+            transform: translateX(-60vw);
+            &:nth-of-type(2){transition-delay: .05s;}
+            &:nth-of-type(3){transition-delay: .1s;}
+        }    
+    }
+    #message3>*, #message3 b svg {
+        opacity: 1;
+        transition-property: opacity, transform;
+        transition-duration: .5s;
+        transition-timing-function: ease-in-out;
+    }
+    #message3 p {
+        transform: translateY(-1rem);
+        &:first-of-type {transition-delay: .46s;}
+        &:last-of-type {transition-delay: .51s;}
+    }
+    #message3 b, #message3 b svg {transform: translateY(0);}
+    #message3 b {transition-delay: .4s;}
+    #message3 b svg:nth-of-type(1) {transition-delay: .49s;}
+    #message3 b svg:nth-of-type(2) {transition-delay: .43s;}
+}
+
+// STEP 4 //
+#abs.step4 {
+    #circ4a, #circ4c, #circ4b, #message5 {display: block;}
+    #message3 {
+        display: flex;
+        &>*{transition: .5s .5s;}
+    }
+    #message3>*, #message3 b svg {
+        transition-duration: .5s;
+        transition-delay: .5s;
+    }
+    #circ4a, #circ4c, #circ4b {
+        width: 70vmax;
+        height: 70vmax;
+        transition-duration: .7s;
+        transition-timing-function: cubic-bezier(0,0,.4,1.5);
+    }
+}
+
+// STEP 5 //
+#abs.step5 {
+    #circ4a, #circ4c, #circ4b, #message5, #circ6a, #circ6c, #circ6b {display: block;}
+    #circ4a, #circ4b {
+        width: 46vmax;
+        height: 46vmax;
+        transition-duration: .6s;
+        transition-timing-function: cubic-bezier(.7,.1,1,1);
+    }
+    #circ4a {left: -12%;}
+    #circ4b {left: 112%;}
+    #circ4c {
+        transition-duration: .2s;
+        transition-delay: .35s;
+    }
+
+    #message5 h4, #message5 h2 {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    #message5 h4 {transition: all .3s ease-out .52s;}
+    #message5 h2 {transition: all .3s ease-out .64s;}
+}
+
+// STEP 6 //
+#abs.step6 {
+    #circ4a, #circ4c, #circ4b, #message5, #circ6a, #circ6c, #circ6b, #message7 {display: block;}
+    #circ4a, #circ4b {
+        width: 46vmax;
+        height: 46vmax;
+        transition-duration: .5s;
+        transition-timing-function: cubic-bezier(.7,.1,1,1);
+    }
+    #circ4a {left: -30%;}
+    #circ4b {left: 130%;}
+    #message5 h4, #message5 h2 {transition-delay: .4s;}
+    #circ6a, #circ6c, #circ6b {
+        width: 80vmax;
+        height: 80vmax;
+        transition-duration: .6s;
+        transition-delay: .35s;
+        transition-timing-function: cubic-bezier(0,0,.4,1.6);
+    }
+}
+
+// STEP 7 //
+#abs.step7 {
+    #circ6a, #circ6b, #circ6c, #message7 {display: block;}
+    #circ6a, #circ6b {
+        width: 51vmax;
+        height: 51vmax;
+        transition-duration: .8s;
+        transition-timing-function: cubic-bezier(.3,0,.4,1);
+    }
+    #circ6a {left: -14%;}
+    #circ6b {left: 114%;}
+    #circ6c {
+        transition-duration: .2s;
+        transition-delay: .3s;
+    }
+    #message7 p {
+        opacity: 1;
+        transform: translateY(0);
+        transition-property: opacity, transform;
+        transition-duration: .4s;
+        &:nth-of-type(1){transition-delay: .47s;}
+        &:nth-of-type(2){transition-delay: .54s;}
+    }
+}
+
+// STEP 8 // 
+#abs.step8 {
+    #circ6a, #circ6c, #circ6b, #message7, #message9 {display: block;}
+    #circ6a, #circ6b {
+        width: 30vmax;
+        height: 30vmax;
+    }
+    #circ6a {left: -20%;}
+    #circ6b {left: 120%;}
+    #message7 p {
+        opacity: 1;
+        transform: translateY(-12vmax);
+        transition-property: opacity, transform;
+        transition-duration: .75s;
+        transition-timing-function: cubic-bezier(.3,0,.4,1);
+        transition-delay: .12s;
+    }
+    #message7 h2 { 
+        opacity: 1;
+        transform: translateY(-7vmax);
+        transition-property: opacity, transform;
+        transition-duration: .62s;
+        transition-timing-function: cubic-bezier(.3,0,.4,1);
+        transition-delay: .32s;
+        &::after {
+            left: 160%;
+            transition: left 1.25s;
+            transition-delay: .15s;
+        }
+    }
+}
+
+// STEP 9 //
+#abs.step9 {
+    #message7, #message9 {display: block;}
+    #message7 p {
+        transform: translateY(-30vmax);
+        transition-duration: .6s;
+        transition-timing-function: cubic-bezier(.7,0,1,1);
+    }
+    #message7 h2 {
+        transform: translateY(-25vmax);
+        transition-duration: .5s;
+        transition-delay: .1s;
+        transition-timing-function: cubic-bezier(.7,0,1,1);
+        &::after {left: 160%;}
+    }
+    #message9 p, #message9 h4:nth-of-type(1) {opacity: 1;}
+    #message9 p {
+        transform: translateY(0);
+        transition-delay: .55s;
+    }
+    #message9 h4:nth-of-type(1) {
+        transform: translate(-50%, 0);
+        transition-delay: .7s;
+    }
+    #message9 h4:nth-of-type(2) {transition-delay: .2s;}
+}
+
+// STEP 10 //
+#abs.step10 {
+    #message7, #message9 {display: block;}
+    #message7 p {
+        transform: translateY(-30vmax);
+        transition-duration: .6s;
+    }
+    #message7 h2 {
+        transform: translateY(-25vmax);
+        transition-duration: .5s;
+        &::after {left: 160%;}
+    }
+    #message9 p {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    #message9 h4:nth-of-type(1) {
+        opacity: 0;
+        transform: translate(-50%, -2.6rem);
+        transition-delay: .2s;
+    }
+    #message9 h4:nth-of-type(2) {
+        opacity: 1;
+        transform: translate(-50%, 0);
+        transition-delay: .6s;
+    }
+}
